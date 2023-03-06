@@ -1,0 +1,6 @@
+apiVersion: v2
+name: external-dns
+description: A Helm chart for an external DNS exposing Kubernetes resources to the outside
+type: application
+version: 0.1.0
+appVersion: "1.16.0"

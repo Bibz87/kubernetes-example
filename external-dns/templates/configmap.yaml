@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "externaldns.fullname" . }}
+  namespace: {{ $.Release.Namespace | quote }}
+data:
+  Corefile: |-
+    .:{{ .Values.service.port }} {
+        errors
+        log
+        ready
+        k8s_gateway {{ .Values.domainName }} {
+            resources Ingress
+            ttl 1800
+            fallthrough
+        }
+        file /etc/coredns/db.{{ .Values.domainName }} {{ .Values.domainName }}
+        forward . {{ join " " .Values.forwarders }}
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+  db.{{ .Values.domainName }}: |-
+    $ORIGIN {{ .Values.domainName }}.
+    @ IN SOA ns1.{{ .Values.domainName }}. admin@{{ .Values.domainName }}. (
+        {{ $.Release.Revision }} ; SERIAL
+        1800 ; REFRESH
+        600 ; RETRY
+        3600000 ; EXPIRE
+        60 ; MINIMUM
+        )
+    {{- range .Values.dnsRecords }}
+    {{ print .name " IN A " .ipAddress }}
+    {{- end }}

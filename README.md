@@ -53,6 +53,7 @@ Cluster access is documented [here](https://docs.k3s.io/cluster-access).
 
 * [Building a bare-metal Kubernetes cluster on Raspberry Pi](https://anthonynsimon.com/blog/kubernetes-cluster-raspberry-pi/)
 * [k3s on Raspberry Pi: Introduction](https://blog.differentpla.net/blog/2020/02/06/k3s-raspi-intro/)
+* [K3s DNS Setup](https://trenta3.gitlab.io/note:k3s-dns-setup/)
 
 ## :wave: Acknowledgements
 
