@@ -13,3 +13,6 @@ More detailed instructions can be found [here](https://anthonynsimon.com/blog/ku
 
 1. Update Helm [values](./vault/helm/values.yaml) to match with your setup/needs
 2. Install chart: `helm install external-dns --namespace external-dns --create-namespace external-dns`
+
+Update your network interface to use your cluster as DNS, otherwise installing
+the remaining components will be more complicated.
