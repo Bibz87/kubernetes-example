@@ -1,0 +1,26 @@
+{{- if .Values.global.enabled -}}
+{{- range .Values.volumes }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ print "vault-" .name | quote }}
+  namespace: {{ $.Release.Namespace | quote }}
+spec:
+  capacity:
+    storage: {{ .size | quote }}
+  accessModes:
+    - "ReadWriteOnce"
+  {{- with .iscsi }}
+  iscsi:
+    targetPortal: {{ .target | quote }}
+    iqn: {{ .iqn | quote }}
+    lun: 0
+    readOnly: false
+  {{- end }}
+  persistentVolumeReclaimPolicy: "Retain"
+  claimRef:
+    namespace: {{ $.Release.Namespace | quote }}
+    name: {{ print .name "-vault-0" | quote }}
+{{- end }}
+{{ end }}

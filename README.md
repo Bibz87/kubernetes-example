@@ -4,6 +4,7 @@
 
 * [:link: Table of Contents](#link-table-of-contents)
 * [:grey\_question: Why](#greyquestion-why)
+* [:receipt: Prerequisites](#receipt-prerequisites)
 * [:computer: Installation](#computer-installation)
 * [:gear: Usage](#gear-usage)
 * [:raising\_hand\_man: Support \& Assistance](#raisinghandman-support--assistance)
@@ -21,6 +22,14 @@ them into a single cluster setup example. This repository is the result of my
 research, trial and error and personal preferences.
 
 <!-- TODO: Add a section explaining cluster components and how they relate to each other -->
+
+## :receipt: Prerequisites
+
+To implement this cluster example as-is, you'll need:
+
+* [K3s' requirements](https://docs.k3s.io/installation/requirements)
+* Helm (was tested with version `v3.11.1`)
+* iSCSI target(s) for remote storage
 
 ## :computer: Installation
 
@@ -56,6 +65,7 @@ Cluster access is documented [here](https://docs.k3s.io/cluster-access).
 * [Building a bare-metal Kubernetes cluster on Raspberry Pi](https://anthonynsimon.com/blog/kubernetes-cluster-raspberry-pi/)
 * [k3s on Raspberry Pi: Introduction](https://blog.differentpla.net/blog/2020/02/06/k3s-raspi-intro/)
 * [K3s DNS Setup](https://trenta3.gitlab.io/note:k3s-dns-setup/)
+* [Vault using Kubernetes auth](https://ddymko.medium.com/vault-using-kubernetes-auth-c67cfcdc8d6e)
 
 ## :wave: Acknowledgements
 

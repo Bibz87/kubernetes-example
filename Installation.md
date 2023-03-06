@@ -23,3 +23,9 @@ the remaining components will be more complicated.
    https://pytoshka.github.io/vault-autounseal`
 2. Install chart: `helm install vault-unsealer vault-autounseal/vault-autounseal
    --namespace vault-unsealer --create-namespace -f vault-unsealer/values.yaml`
+
+## :classical_building: HashiCorp Vault
+
+1. Update Helm [values](./vault/helm/values.yaml) to match with your setup/needs
+2. Install chart dependencies: `helm dependency build vault/helm`
+3. Install chart: `helm install vault --namespace vault --create-namespace vault/helm`
