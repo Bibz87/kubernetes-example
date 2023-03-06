@@ -1,6 +1,6 @@
 apiVersion: v2
-name: vault-mydomain
-description: mydomain-specific HashiCorp Vault chart
+name: vault-domain-local
+description: domain-local-specific HashiCorp Vault chart
 type: application
 version: 0.1.0
 appVersion: "1.16.0"

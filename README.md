@@ -22,6 +22,7 @@ them into a single cluster setup example. This repository is the result of my
 research, trial and error and personal preferences.
 
 <!-- TODO: Add a section explaining cluster components and how they relate to each other -->
+<!-- TODO: Add disclaimer section explaining that setup shouldn't be used in production -->
 
 ## :receipt: Prerequisites
 
@@ -29,6 +30,7 @@ To implement this cluster example as-is, you'll need:
 
 * [K3s' requirements](https://docs.k3s.io/installation/requirements)
 * Helm (was tested with version `v3.11.1`)
+* Terraform (was tested with version `v1.3.9`)
 * iSCSI target(s) for remote storage
 
 ## :computer: Installation
