@@ -20,6 +20,8 @@ home cluster. I've collected bits and pieces of multiples sources and combined
 them into a single cluster setup example. This repository is the result of my
 research, trial and error and personal preferences.
 
+<!-- TODO: Add a section explaining cluster components and how they relate to each other -->
+
 ## :computer: Installation
 
 All cluster components are managed with Helm charts and can be installed mostly
