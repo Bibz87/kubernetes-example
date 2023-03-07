@@ -1,4 +1,4 @@
-# cert-manager-domain-local Helm Chart
+# Cert-Manager
 
 ## Installation
 

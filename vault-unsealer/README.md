@@ -1,4 +1,4 @@
-# vault-unsealer-carbongem Helm Chart
+# Vault Unsealer
 
 ## Installation
 
