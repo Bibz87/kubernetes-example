@@ -82,5 +82,4 @@ Below are a few guidelines if you would like to contribute:
 [issues]: https://github.com/Bibz87/kubernetes-example/issues?q=is%3Aopen+is%3Aissue
 [license]: https://github.com/Bibz87/kubernetes-example/blob/main/LICENSE
 [pull-requests]: https://github.com/Bibz87/kubernetes-example/pulls?q=is%3Aopen+is%3Apr
-[security]: https://github.com/Bibz87/kubernetes-example/security/policy
 [support]: https://github.com/Bibz87/kubernetes-example/blob/main/.github/SUPPORT.md
