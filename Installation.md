@@ -28,6 +28,19 @@ the remaining components will be more complicated.
 2. Install chart: `helm install vault-unsealer vault-autounseal/vault-autounseal
    --namespace vault-unsealer --create-namespace -f vault-unsealer/values.yaml`
 
+⚠ Vault unsealer won't do anything until Vault is installed on the cluster and
+this is the expected behaviour.
+
+## :scroll: cert-manager
+
+1. Install Custom Resource Definitions (CRDs): `kubectl apply -f
+   https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.crds.yaml`
+2. Install chart: `helm install cert-manager --namespace cert-manager
+   --create-namespace cert-manager`
+
+⚠ cert-manager's `vault-issuer` won't be ready until Vault is installed on the
+cluster and this is the expected behaviour.
+
 ## :classical_building: HashiCorp Vault
 
 1. Update Helm [values](./vault/helm/values.yaml) to match with your setup/needs
@@ -49,21 +62,14 @@ the remaining components will be more complicated.
      repository!
 7. Update Vault's [variables file](./vault/terraform/vault.auto.tfvars) to match
    with your setup/needs
-   - ⚠ Make sure your Vault address (`vault_addr` variable) is using `http`
-     until ingress TLS setup is complete
+   - ⚠ Make sure Vault's address (`vault_addr` variable) is using `http` until
+     Vault setup is complete
 8. Initialize Terraform configuration: `terraform -chdir=vault/terraform init`
 9. Configure Vault by applying Terraform configuration: `terraform
    -chdir=vault/terraform apply`
 10. Review changes and type `yes` to apply them
 11. Add `vault/terraform/root.crt` to your trusted certificate store
-
-## :scroll: cert-manager
-
-1. Install Custom Resource Definitions (CRDs): `kubectl apply -f
-   https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.crds.yaml`
-2. Install chart: `helm install cert-manager --namespace cert-manager
-   --create-namespace cert-manager`
-3. Fix Vault's URL by replacing `http` with `https` in its [Terraform variables
-   file](./vault/terraform/vault.auto.tfvars)
-4. Re-apply Vault's Terraform configuration: `terraform -chdir=vault/terraform
+12. Fix Vault's address in Terraform's [variables
+    file](./vault/terraform/vault.auto.tfvars) by replacing `http` with `https`
+13. Re-apply Vault's Terraform configuration: `terraform -chdir=vault/terraform
    apply`
