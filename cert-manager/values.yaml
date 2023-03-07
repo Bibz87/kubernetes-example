@@ -1,0 +1,14 @@
+vaultissuer:
+  serviceAccount:
+    name: vault-issuer
+  vault:
+    path: pki/sign/cert-manager
+    server: http://vault.vault:8200
+    auth:
+      kubernetes:
+        role: cert-manager
+        mountPath: /v1/auth/kubernetes
+
+cert-manager:
+  serviceAccount:
+    name: cert-manager

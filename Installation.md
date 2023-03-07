@@ -56,3 +56,14 @@ the remaining components will be more complicated.
    -chdir=vault/terraform apply`
 10. Review changes and type `yes` to apply them
 11. Add `vault/terraform/root.crt` to your trusted certificate store
+
+## :scroll: cert-manager
+
+1. Install Custom Resource Definitions (CRDs): `kubectl apply -f
+   https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.crds.yaml`
+2. Install chart: `helm install cert-manager --namespace cert-manager
+   --create-namespace cert-manager`
+3. Fix Vault's URL by replacing `http` with `https` in its [Terraform variables
+   file](./vault/terraform/vault.auto.tfvars)
+4. Re-apply Vault's Terraform configuration: `terraform -chdir=vault/terraform
+   apply`
