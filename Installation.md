@@ -73,3 +73,11 @@ cluster and this is the expected behaviour.
     file](./vault/terraform/vault.auto.tfvars) by replacing `http` with `https`
 13. Re-apply Vault's Terraform configuration: `terraform -chdir=vault/terraform
    apply`
+
+## :chart_with_upwards_trend: Kubernetes dashboard
+
+1. Install chart: `helm install kubernetes-dashboard --namespace
+kubernetes-dashboard --create-namespace dashboard`
+2. Generate token for dashboard sign-in: `kubectl -n kubernetes-dashboard create
+   token admin-user`
+3. Use generated token to sign in Kubernetes dashboard

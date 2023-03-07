@@ -1,0 +1,19 @@
+username: admin-user
+
+kubernetes-dashboard:
+  protocolHttp: "true"
+  service:
+    externalPort: 9090
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: vault-issuer
+      cert-manager.io/common-name: k8s-dashboard.domain.local
+    hosts:
+      - k8s-dashboard.domain.local
+    tls:
+      - hosts:
+        - k8s-dashboard.domain.local
+        secretName: kubernetes-dashboard-tls
+  extraArgs:
+    - --enable-insecure-login
