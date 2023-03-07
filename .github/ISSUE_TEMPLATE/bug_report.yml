@@ -43,7 +43,7 @@ body:
     attributes:
       label: "💠 Version: kubernetes-example"
       description: What version of kubernetes-example is being used?
-      placeholder: 'Examples: "v1.2.3, master branch, commit 1a2b3c"'
+      placeholder: 'Examples: "v1.2.3, main branch, commit 1a2b3c"'
     validations:
       required: true
   - type: dropdown

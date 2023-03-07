@@ -34,7 +34,7 @@ Here are some tips:
 See [`CONTRIBUTING.md`][contributing] on how to contribute.
 
 <!-- definitions -->
-[coc]: https://github.com/Bibz87/kubernetes-example/blob/master/.github/CODE_OF_CONDUCT.md
-[contributing]: https://github.com/Bibz87/kubernetes-example/blob/master/.github/CONTRIBUTING.md
+[coc]: https://github.com/Bibz87/kubernetes-example/blob/main/.github/CODE_OF_CONDUCT.md
+[contributing]: https://github.com/Bibz87/kubernetes-example/blob/main/.github/CONTRIBUTING.md
 [xy]: https://meta.stackexchange.com/questions/66377/what-is-the-xy-problem/66378#66378
 [cs]: https://codesandbox.io

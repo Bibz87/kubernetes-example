@@ -20,7 +20,7 @@ please follow these guidelines:
    * Provide as much information as possible (logs, metrics, screenshots,
      runtime environment, etc).
    * Ensure that you are running on the latest stable version (tagged), or
-     when using `master`, provide the specific commit being used.
+     when using `main`, provide the specific commit being used.
    * Provide the minimum needed viable source to replicate the problem.
 
 ## :bulb: Feature requests
@@ -77,10 +77,10 @@ Below are a few guidelines if you would like to contribute:
    * [Code of Conduct][coc].
 
 <!-- definitions -->
-[coc]: https://github.com/Bibz87/kubernetes-example/blob/master/.github/CODE_OF_CONDUCT.md
+[coc]: https://github.com/Bibz87/kubernetes-example/blob/main/.github/CODE_OF_CONDUCT.md
 [dco]: https://developercertificate.org/
-[issues]: https://github.com/Bibz87/kubernetes-example/issues/new/choose
-[license]: https://github.com/Bibz87/kubernetes-example/blob/master/LICENSE
+[issues]: https://github.com/Bibz87/kubernetes-example/issues?q=is%3Aopen+is%3Aissue
+[license]: https://github.com/Bibz87/kubernetes-example/blob/main/LICENSE
 [pull-requests]: https://github.com/Bibz87/kubernetes-example/pulls?q=is%3Aopen+is%3Apr
 [security]: https://github.com/Bibz87/kubernetes-example/security/policy
-[support]: https://github.com/Bibz87/kubernetes-example/blob/master/.github/SUPPORT.md
+[support]: https://github.com/Bibz87/kubernetes-example/blob/main/.github/SUPPORT.md
