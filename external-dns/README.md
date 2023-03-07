@@ -16,4 +16,4 @@ needs.
 
 ## Uninstallation
 
-`helm delete external-dns`
+`helm delete external-dns --namespace external-dns`

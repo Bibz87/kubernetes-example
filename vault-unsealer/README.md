@@ -12,5 +12,5 @@ The chart's repository can be found
 
 ## Uninstallation
 
-1. Uninstall chart release: `helm delete vault-unsealer`
+1. Uninstall chart release: `helm delete vault-unsealer --namespace vault-unsealer`
 2. Delete helm repository: `helm repo remove vault-autounseal`

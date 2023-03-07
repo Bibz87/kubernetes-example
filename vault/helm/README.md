@@ -9,4 +9,4 @@ Kubernetes authentication configuration was originally taken from
 
 ## Uninstallation
 
-`helm delete vault`
+`helm delete vault --namespace vault`
