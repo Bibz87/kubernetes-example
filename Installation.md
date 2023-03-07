@@ -16,3 +16,10 @@ More detailed instructions can be found [here](https://anthonynsimon.com/blog/ku
 
 Update your network interface to use your cluster as DNS, otherwise installing
 the remaining components will be more complicated.
+
+## :unlock: Vault unsealer
+
+1. Add helm repository: `helm repo add vault-autounseal
+   https://pytoshka.github.io/vault-autounseal`
+2. Install chart: `helm install vault-unsealer vault-autounseal/vault-autounseal
+   --namespace vault-unsealer --create-namespace -f vault-unsealer/values.yaml`
