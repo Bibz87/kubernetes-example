@@ -12,6 +12,8 @@ or [here](https://blog.differentpla.net/blog/2020/02/06/k3s-raspi-install-k3s).
 4. Retrieve cluster token: `sudo cat /var/lib/rancher/k3s/server/node-token`
 5. On each node, register with cluster: `curl -sfL https://get.k3s.io |
    K3S_URL=https://$YOUR_SERVER_NODE_IP:6443 K3S_TOKEN=$YOUR_CLUSTER_TOKEN sh -`
+   * :warning: Replace `$YOUR_SERVER_NODE_IP` with your cluster's IP address
+   * :warning: Replace `$YOUR_CLUSTER_TOKEN` with your cluster's token
 
 ## :book: External DNS
 
