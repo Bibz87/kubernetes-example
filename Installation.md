@@ -28,7 +28,7 @@ the remaining components will be more complicated.
 2. Install chart: `helm install vault-unsealer vault-autounseal/vault-autounseal
    --namespace vault-unsealer --create-namespace -f vault-unsealer/values.yaml`
 
-⚠ Vault unsealer won't do anything until Vault is installed on the cluster and
+:warning: Vault unsealer won't do anything until Vault is installed on the cluster and
 this is the expected behaviour.
 
 ## :scroll: cert-manager
@@ -38,7 +38,7 @@ this is the expected behaviour.
 2. Install chart: `helm install cert-manager --namespace cert-manager
    --create-namespace cert-manager`
 
-⚠ cert-manager's `vault-issuer` won't be ready until Vault is installed on the
+:warning: cert-manager's `vault-issuer` won't be ready until Vault is installed on the
 cluster and this is the expected behaviour.
 
 ## :classical_building: HashiCorp Vault
@@ -55,14 +55,14 @@ cluster and this is the expected behaviour.
    base64 -d`
 6. Store token in Terraform's sensitive variables file: `echo "vault_token =
    \"$ROOT_TOKEN\"" > vault/terraform/sensitive.auto.tfvars`
-   - ⚠ Replace `$ROOT_TOKEN` with Vault's root token
-   - ℹ Root token can also be given interactively when running Terraform
+   - :warning: Replace `$ROOT_TOKEN` with Vault's root token
+   - Root token can also be given interactively when running Terraform
      commands instead of being stored in a file
-   - 🛑 *Never* commit sensitive information such as tokens in your git
+   - :stop_sign: *Never* commit sensitive information such as tokens in your git
      repository!
-7. Update Vault's [variables file](./vault/terraform/vault.auto.tfvars) to match
+7. Update Vault's Terraform [variables file](./vault/terraform/vault.auto.tfvars) to match
    with your setup/needs
-   - ⚠ Make sure Vault's address (`vault_addr` variable) is using `http` until
+   - :warning: Make sure Vault's address (`vault_addr` variable) is using `http` until
      Vault setup is complete
 8. Initialize Terraform configuration: `terraform -chdir=vault/terraform init`
 9. Configure Vault by applying Terraform configuration: `terraform
