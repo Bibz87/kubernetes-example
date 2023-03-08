@@ -56,14 +56,14 @@ cluster and this is the expected behaviour.
    base64 -d`
 6. Store token in Terraform's sensitive variables file: `echo "vault_token =
    \"$ROOT_TOKEN\"" > vault/terraform/sensitive.auto.tfvars`
-   - :warning: Replace `$ROOT_TOKEN` with Vault's root token
-   - Root token can also be given interactively when running Terraform
+   * :warning: Replace `$ROOT_TOKEN` with Vault's root token
+   * Root token can also be given interactively when running Terraform
      commands instead of being stored in a file
-   - :stop_sign: *Never* commit sensitive information such as tokens in your git
+   * :stop_sign: *Never* commit sensitive information such as tokens in your git
      repository!
 7. Update Vault's Terraform [variables file](./vault/terraform/vault.auto.tfvars) to match
    with your setup/needs
-   - :warning: Make sure Vault's address (`vault_addr` variable) is using `http` until
+   * :warning: Make sure Vault's address (`vault_addr` variable) is using `http` until
      Vault setup is complete
 8. Initialize Terraform configuration: `terraform -chdir=vault/terraform init`
 9. Configure Vault by applying Terraform configuration: `terraform
