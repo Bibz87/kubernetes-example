@@ -8,8 +8,9 @@ or [here](https://blog.differentpla.net/blog/2020/02/06/k3s-raspi-install-k3s).
 
 1. Install k3s: `curl -sfL https://get.k3s.io | sh -`
 2. Retrieve kubeconfig file: `sudo cat /etc/rancher/k3s/k3s.yaml`
-3. Retrieve cluster token: `sudo cat /var/lib/rancher/k3s/server/node-token`
-4. On each node, register with cluster: `curl -sfL https://get.k3s.io |
+3. Update the kubeconfig's cluster IP address to match with your cluster's
+4. Retrieve cluster token: `sudo cat /var/lib/rancher/k3s/server/node-token`
+5. On each node, register with cluster: `curl -sfL https://get.k3s.io |
    K3S_URL=https://$YOUR_SERVER_NODE_IP:6443 K3S_TOKEN=$YOUR_CLUSTER_TOKEN sh -`
 
 ## :book: External DNS
