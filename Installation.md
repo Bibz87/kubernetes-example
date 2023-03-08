@@ -72,7 +72,7 @@ cluster and this is the expected behaviour.
 12. Fix Vault's address in Terraform's [variables
     file](./vault/terraform/vault.auto.tfvars) by replacing `http` with `https`
 13. Re-apply Vault's Terraform configuration: `terraform -chdir=vault/terraform
-   apply`
+    apply`
 
 ## :chart_with_upwards_trend: Kubernetes dashboard
 
