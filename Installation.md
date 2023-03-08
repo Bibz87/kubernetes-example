@@ -68,6 +68,10 @@ cluster and this is the expected behaviour.
    * :warning: Make sure Vault's address (`vault_addr` variable) is using `http` until
      Vault setup is complete
 8. Initialize Terraform configuration: `terraform -chdir=vault/terraform init`
+   * To use a different kubeconfig file from the default (`~/kube/.config`),
+     simply add the `-backend-config` argument. e.g. `terraform
+     -chdir=vault/terraform init
+     -backend-config="config_path=/path/to/other/kubeconfig"`
 9. Configure Vault by applying Terraform configuration: `terraform
    -chdir=vault/terraform apply`
 10. Review changes and type `yes` to apply them
