@@ -18,7 +18,7 @@ or [here](https://blog.differentpla.net/blog/2020/02/06/k3s-raspi-install-k3s).
 2. Install chart: `helm install external-dns --namespace external-dns
    --create-namespace external-dns`
 
-Update your network interface to use your cluster as DNS, otherwise installing
+:warning: Update your network interface to use your cluster as DNS, otherwise installing
 the remaining components will be more complicated.
 
 ## :unlock: Vault unsealer
