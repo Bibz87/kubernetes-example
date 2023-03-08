@@ -45,9 +45,6 @@
     "cert-manager": {
       "type": "object",
       "properties": {
-        "installCRDs": {
-          "type": "boolean"
-        },
         "serviceAccount": {
           "type": "object",
           "properties": {
