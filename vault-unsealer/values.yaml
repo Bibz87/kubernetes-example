@@ -1,0 +1,16 @@
+nameOverride: "vault-unsealer"
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 32Mi
+  requests:
+    cpu: 10m
+    memory: 8Mi
+
+settings:
+  vault_url: "http://vault.vault:8200"
+  vault_secret_shares: 1
+  vault_secret_threshold: 1
+  vault_root_token_secret: vault-root-token
+  vault_keys_secret: vault-keys

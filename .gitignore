@@ -1,0 +1,6 @@
+# Gzipped Tar Files
+*.tgz
+
+# Certificates
+*.crt
+*.pem

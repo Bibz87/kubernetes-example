@@ -1,0 +1,22 @@
+{{- with .Values.vaultissuer }}
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: {{ .serviceAccount.name | quote }}
+  namespace: {{ $.Release.Namespace | quote }}
+spec:
+  vault:
+    {{- with .vault }}
+    path: {{ .path | quote }}
+    server: {{ .server | quote }}
+    auth:
+      kubernetes:
+        {{- with .auth.kubernetes }}
+        role: {{ .role | quote }}
+        mountPath: {{ .mountPath | quote }}
+        {{- end }}
+    {{- end }}
+        secretRef:
+          name: {{ template "token.secret.name" .serviceAccount.name }}
+          key: token
+{{- end }}

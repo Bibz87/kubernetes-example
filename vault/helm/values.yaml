@@ -1,0 +1,52 @@
+global:
+  enabled: true
+
+k8sAuth:
+  serviceAccount:
+    name: vault-auth
+
+volumes:
+  - name: data
+    size: 10Gi
+    iscsi:
+      target: 1.2.3.4:3260 # Replace with your iSCSI target's IP address and port
+      iqn: my-iscsi-target:vault-data # Replace with your iSCSI target's IQN
+  - name: audit
+    size: 1Gi
+    iscsi:
+      target: 1.2.3.4:3260 # Replace with your iSCSI target's IP address and port
+      iqn: my-iscsi-target:vault-audit # Replace with your iSCSI target's IQN
+      # secretRef:
+      #   name: iscsi-chap-secret # Name of the Kubernetes Secret that has iSCSI target's CHAP credentials
+
+vault:
+  global:
+    tlsDisable: true
+
+  injector:
+    enabled: false
+
+  server:
+    ingress:
+      enabled: true
+      hosts:
+        - host: vault.domain.local
+      annotations:
+        cert-manager.io/cluster-issuer: vault-issuer
+        cert-manager.io/common-name: vault.domain.local
+      tls:
+        - hosts:
+          - vault.domain.local
+          secretName: vault-tls
+    readinessProbe:
+      enabled: true
+      path: "/v1/sys/health?standbyok=true&sealedcode=204&uninitcode=204"
+    livenessProbe:
+      enabled: true
+      path: "/v1/sys/health?standbyok=true"
+      initialDelaySeconds: 60
+    auditStorage:
+      enabled: true
+      size: 1Gi
+    standalone:
+      enabled: true

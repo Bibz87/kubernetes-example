@@ -1,0 +1,31 @@
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: LoadBalancer
+  port: 53
+  protocol: UDP
+  portName: udp-53
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 10m
+    memory: 16Mi
+
+domainName: domain.local
+
+forwarders:
+  - 1.1.1.1 # Cloudflare Public DNS 1
+  - 1.0.0.1 # Cloudflare Public DNS 2
+  - 8.8.8.8 # Google Public DNS 1
+  - 8.8.4.4 # Google Public DNS 2
+
+dnsRecords:
+  # Add fixed DNS records as needed
+  - name: non-k8s-service
+    ipAddress: 1.2.3.4
