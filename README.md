@@ -4,6 +4,7 @@
 
 * [:link: Table of Contents](#link-table-of-contents)
 * [:grey\_question: Why](#greyquestion-why)
+* [:warning: Disclaimer](#warning-disclaimer)
 * [:receipt: Prerequisites](#receipt-prerequisites)
 * [:computer: Installation](#computer-installation)
 * [:gear: Usage](#gear-usage)
@@ -22,7 +23,12 @@ them into a single cluster setup example. This repository is the result of my
 research, trial and error and personal preferences.
 
 <!-- TODO: Add a section explaining cluster components and how they relate to each other -->
-<!-- TODO: Add disclaimer section explaining that setup shouldn't be used in production -->
+
+## :warning: Disclaimer
+
+This cluster configuration example is not meant to be used in production. While
+it can be used as a starting point, there are several changes required to make
+it stable and secure and these are outside the scope of this project.
 
 ## :receipt: Prerequisites
 
