@@ -22,7 +22,23 @@ home cluster. I've collected bits and pieces of multiples sources and combined
 them into a single cluster setup example. This repository is the result of my
 research, trial and error and personal preferences.
 
-<!-- TODO: Add a section explaining cluster components and how they relate to each other -->
+Here's a rough relationship diagram that demonstrates each component's
+high-level purpose.
+
+```mermaid
+graph TD;
+    cert-manager[cert-manager];
+    dashboard[Kubernetes<br>Dashboard];
+    dns[External DNS];
+    vault[HashiCorp<br>Vault];
+    unsealer[Vault<br>Unsealer];
+    cert-manager-- Issue certificates -->vault;
+    vault-- Ingress TLS certificate -->cert-manager;
+    dashboard-- Ingress TLS certificate -->cert-manager;
+    dns-- Exposes ingress<br>externally -->vault;
+    dns-- Exposes ingress<br>externally -->dashboard;
+    unsealer-- Initialises/Unseals -->vault;
+```
 
 ## :warning: Disclaimer
 
