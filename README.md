@@ -76,6 +76,7 @@ Cluster access is documented [here](https://docs.k3s.io/cluster-access).
 * [Kubernetes
   Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard)
 * [cert-manager](https://cert-manager.io)
+* [HashiCorp Vault](https://www.vaultproject.io/)
 * [Vault Unsealer](https://github.com/pyToshka/vault-autounseal)
 
 ## :wave: Acknowledgements
