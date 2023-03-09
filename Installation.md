@@ -17,7 +17,7 @@ or [here](https://blog.differentpla.net/blog/2020/02/06/k3s-raspi-install-k3s).
 
 ## :book: External DNS
 
-1. Update Helm [values](./vault/helm/values.yaml) to match with your setup/needs
+1. Update Helm [values](./external-dns/values.yaml) to match with your setup/needs
 2. Install chart: `helm install external-dns --namespace external-dns
    --create-namespace external-dns`
 
