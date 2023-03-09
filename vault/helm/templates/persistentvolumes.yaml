@@ -16,6 +16,13 @@ spec:
     iqn: {{ .iqn | quote }}
     lun: 0
     readOnly: false
+    {{- if .secretRef }}
+    chapAuthDiscovery: true
+    chapAuthSession: true
+    secretRef:
+      name: {{ .secretRef.name | quote }}
+      namespace: {{ $.Release.Namespace | quote }}
+    {{- end }}
   {{- end }}
   persistentVolumeReclaimPolicy: "Retain"
   claimRef:

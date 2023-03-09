@@ -16,6 +16,8 @@ volumes:
     iscsi:
       target: 1.2.3.4:3260 # Replace with your iSCSI target's IP address and port
       iqn: my-iscsi-target:vault-audit # Replace with your iSCSI target's IQN
+      # secretRef:
+      #   name: iscsi-chap-secret # Name of the Kubernetes Secret that has iSCSI target's CHAP credentials
 
 vault:
   global:
