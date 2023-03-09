@@ -43,7 +43,10 @@ independently. For detailed installation instructions, please see the related
 
 Cluster access is documented [here](https://docs.k3s.io/cluster-access).
 
-<!-- TODO: Complete section with service and ingress list -->
+By default these services are exposed outside the cluster:
+
+* HashiCorp Vault (`https://vault.domain.local`)
+* Kubernetes Dashboard (`https://k8s-dashboard.domain.local`)
 
 ## :raising_hand_man: Support & Assistance
 
