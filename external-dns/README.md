@@ -4,7 +4,8 @@
 
 `k8s_gateway` is a CoreDNS plugin that "scans" the specified resources (in our
 case, Ingresses) and creates DNS records for each of them. Because we specified
-`fallthrough`, unmatched requests will be passed on to the next plugins.
+`fallthrough`, unmatched requests will be passed on to the next plugins. This
+lets machines from outside the cluster easily use exposed cluster Ingresses.
 
 Configuration was originally taken from
 [here](https://trenta3.gitlab.io/note:k3s-dns-setup/) and was adapted for our
