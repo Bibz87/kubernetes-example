@@ -72,6 +72,11 @@ Cluster access is documented [here](https://docs.k3s.io/cluster-access).
 * [K3s DNS Setup](https://trenta3.gitlab.io/note:k3s-dns-setup/)
 * [Vault using Kubernetes
   auth](https://ddymko.medium.com/vault-using-kubernetes-auth-c67cfcdc8d6e)
+* [External DNS](https://trenta3.gitlab.io/note:k3s-dns-setup)
+* [Kubernetes
+  Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard)
+* [cert-manager](https://cert-manager.io)
+* [Vault Unsealer](https://github.com/pyToshka/vault-autounseal)
 
 ## :wave: Acknowledgements
 
