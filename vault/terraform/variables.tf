@@ -1,3 +1,9 @@
+variable "kubeconfig_path" {
+  description = "Path to cluster's kubeconfig file"
+  type        = string
+  default     = "~/.kube/config"
+}
+
 variable "vault_addr" {
   description = "Vault server's address"
   type        = string
