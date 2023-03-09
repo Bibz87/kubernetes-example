@@ -106,7 +106,7 @@ By default these services are exposed outside the cluster:
 
 ## :wave: Acknowledgements
 
-Huge thanks to @lrstanley for letting me use his repository documentation
+Huge thanks to [@lrstanley](https://github.com/lrstanley) for letting me use his repository documentation
 templates!
 
 ## :balance_scale: License
