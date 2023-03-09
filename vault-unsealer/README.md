@@ -1,6 +1,6 @@
 # Vault Unsealer
 
-This application automatically initialise and unseal an HashiCorp Vault
+This application automatically initialises and unseals an HashiCorp Vault
 instance. Without this, you would need to manually initialise/unseal Vault each
 time its pod is started.
 

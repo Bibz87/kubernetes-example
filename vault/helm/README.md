@@ -1,7 +1,7 @@
 # Vault Helm Chart
 
 HashiCorp Vault is a secret and sensitive data manager. With it, you can easily
-deal with application certificates, database credentials, passwords, API keys
+deal with digital certificates, database credentials, passwords, API keys
 and more. For more information, see the project's [website](https://www.vaultproject.io/).
 
 Kubernetes authentication configuration was originally taken from
