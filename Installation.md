@@ -87,8 +87,11 @@ cluster and this is the expected behaviour.
 
 ## :chart_with_upwards_trend: Kubernetes dashboard
 
-1. Install chart: `helm install kubernetes-dashboard --namespace
+1. Add helm repository: `helm repo add kubernetes-dashboard
+   https://kubernetes.github.io/dashboard/`
+2. Install chart dependencies: `helm dependency build dashboard`
+3. Install chart: `helm install kubernetes-dashboard --namespace
 kubernetes-dashboard --create-namespace dashboard`
-2. Generate token for dashboard sign-in: `kubectl -n kubernetes-dashboard create
+4. Generate token for dashboard sign-in: `kubectl -n kubernetes-dashboard create
    token admin-user`
-3. Use generated token to sign in Kubernetes dashboard
+5. Use generated token to sign in Kubernetes dashboard
