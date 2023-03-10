@@ -36,9 +36,11 @@ this is the expected behaviour.
 
 ## :scroll: cert-manager
 
-1. Install Custom Resource Definitions (CRDs): `kubectl apply -f
+1. Add helm repository: `helm repo add jetstack https://charts.jetstack.io`
+2. Install chart dependencies: `helm dependency build cert-manager`
+3. Install Custom Resource Definitions (CRDs): `kubectl apply -f
    https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.crds.yaml`
-2. Install chart: `helm install cert-manager --namespace cert-manager
+4. Install chart: `helm install cert-manager --namespace cert-manager
    --create-namespace cert-manager`
 
 :warning: cert-manager's `vault-issuer` won't be ready until Vault is installed on the
@@ -47,44 +49,49 @@ cluster and this is the expected behaviour.
 ## :classical_building: HashiCorp Vault
 
 1. Update Helm [values](./vault/helm/values.yaml) to match with your setup/needs
-2. Install chart dependencies: `helm dependency build vault/helm`
-3. Install chart: `helm install vault --namespace vault --create-namespace
+2. Add helm repository: `helm repo add hashicorp
+   https://helm.releases.hashicorp.com`
+3. Install chart dependencies: `helm dependency build vault/helm`
+4. Install chart: `helm install vault --namespace vault --create-namespace
    vault/helm`
-4. Check `vault-unsealer` logs to know when Vault has been initialised and
+5. Check `vault-unsealer` logs to know when Vault has been initialised and
    unsealed: `kubectl logs -f --namespace vault-unsealer
    deployment/vault-unsealer`
-5. Once Vault is unsealed, retrieve Vault's root token: `kubectl get secret
+6. Once Vault is unsealed, retrieve Vault's root token: `kubectl get secret
    --namespace vault-unsealer vault-root-token --template={{.data.root_token}} |
    base64 -d`
-6. Store token in Terraform's sensitive variables file: `echo "vault_token =
+7. Store token in Terraform's sensitive variables file: `echo "vault_token =
    \"$ROOT_TOKEN\"" > vault/terraform/sensitive.auto.tfvars`
    * :warning: Replace `$ROOT_TOKEN` with Vault's root token
    * Root token can also be given interactively when running Terraform
      commands instead of being stored in a file
    * :stop_sign: *Never* commit sensitive information such as tokens in your git
      repository!
-7. Update Vault's Terraform [variables file](./vault/terraform/vault.auto.tfvars) to match
+8. Update Vault's Terraform [variables file](./vault/terraform/vault.auto.tfvars) to match
    with your setup/needs
    * :warning: Make sure Vault's address (`vault_addr` variable) is using `http` until
      Vault setup is complete
-8. Initialize Terraform configuration: `terraform -chdir=vault/terraform init`
+9. Initialize Terraform configuration: `terraform -chdir=vault/terraform init`
    * To use a different kubeconfig file from the default (`~/kube/.config`),
      simply add the `-backend-config` argument. e.g. `terraform
      -chdir=vault/terraform init
      -backend-config="config_path=/path/to/other/kubeconfig"`
-9. Configure Vault by applying Terraform configuration: `terraform
+10. Configure Vault by applying Terraform configuration: `terraform
    -chdir=vault/terraform apply`
-10. Review changes and type `yes` to apply them
-11. Add `vault/terraform/root.crt` to your trusted certificate store
-12. Fix Vault's address in Terraform's [variables
+11. Review changes and type `yes` to apply them
+12. Add `vault/terraform/root.crt` to your trusted certificate store
+13. Fix Vault's address in Terraform's [variables
     file](./vault/terraform/vault.auto.tfvars) by replacing `http` with `https`
-13. Re-apply Vault's Terraform configuration: `terraform -chdir=vault/terraform
+14. Re-apply Vault's Terraform configuration: `terraform -chdir=vault/terraform
     apply`
 
 ## :chart_with_upwards_trend: Kubernetes dashboard
 
-1. Install chart: `helm install kubernetes-dashboard --namespace
+1. Add helm repository: `helm repo add kubernetes-dashboard
+   https://kubernetes.github.io/dashboard/`
+2. Install chart dependencies: `helm dependency build dashboard`
+3. Install chart: `helm install kubernetes-dashboard --namespace
 kubernetes-dashboard --create-namespace dashboard`
-2. Generate token for dashboard sign-in: `kubectl -n kubernetes-dashboard create
+4. Generate token for dashboard sign-in: `kubectl -n kubernetes-dashboard create
    token admin-user`
-3. Use generated token to sign in Kubernetes dashboard
+5. Use generated token to sign in Kubernetes dashboard
