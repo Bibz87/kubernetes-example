@@ -36,9 +36,11 @@ this is the expected behaviour.
 
 ## :scroll: cert-manager
 
-1. Install Custom Resource Definitions (CRDs): `kubectl apply -f
+1. Add helm repository: `helm repo add jetstack https://charts.jetstack.io`
+2. Install chart dependencies: `helm dependency build cert-manager`
+3. Install Custom Resource Definitions (CRDs): `kubectl apply -f
    https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.crds.yaml`
-2. Install chart: `helm install cert-manager --namespace cert-manager
+4. Install chart: `helm install cert-manager --namespace cert-manager
    --create-namespace cert-manager`
 
 :warning: cert-manager's `vault-issuer` won't be ready until Vault is installed on the
