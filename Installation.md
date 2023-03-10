@@ -10,12 +10,19 @@ or [here](https://blog.differentpla.net/blog/2020/02/06/k3s-raspi-install-k3s).
 2. Retrieve kubeconfig file: `sudo cat /etc/rancher/k3s/k3s.yaml`
 3. Update the kubeconfig's cluster IP address to match with your cluster's
 4. Retrieve cluster token: `sudo cat /var/lib/rancher/k3s/server/node-token`
-5. On each node, register with cluster: `curl -sfL https://get.k3s.io |
+5. On each worker node, register with cluster: `curl -sfL https://get.k3s.io |
    K3S_URL=https://$YOUR_SERVER_NODE_IP:6443 K3S_TOKEN=$YOUR_CLUSTER_TOKEN sh -`
    * :warning: Replace `$YOUR_SERVER_NODE_IP` with your cluster's IP address
    * :warning: Replace `$YOUR_CLUSTER_TOKEN` with your cluster's token
 
 ## :book: External DNS
+
+:warning: The `External DNS` chart has trouble on systems running `systemd-resolved`:
+the `Service` gets installed before the `Pod` is able to pull the container's
+image and highjacks all DNS requests, making it impossible for the `Pod` to be
+created properly. A workaround is to change `/etc/resolv.conf` on all cluster
+nodes to point to `/run/systemd/resolve/resolv.conf`: `sudo ln -sf
+/run/systemd/resolve/resolv.conf /etc/resolv.conf`
 
 1. Update Helm [values](./external-dns/values.yaml) to match with your setup/needs
 2. Install chart: `helm install external-dns --namespace external-dns
