@@ -54,6 +54,7 @@ To implement this cluster example as-is, you'll need:
 * Helm (was tested with version `v3.11.1`)
 * Terraform (was tested with version `v1.3.9`)
 * iSCSI target(s) for remote storage
+* `open-iscsi` needs to be installed on all nodes
 
 ## :computer: Installation
 
